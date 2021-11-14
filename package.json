@@ -21,7 +21,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "react/no-multi-comp": [false, { "ignoreStateless": true }]
+    }
   },
   "browserslist": {
     "production": [
