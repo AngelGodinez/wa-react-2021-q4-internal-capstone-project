@@ -23,7 +23,7 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/no-multi-comp": [false, { "ignoreStateless": true }]
+      "react/no-multi-comp": [0, { "ignoreStateless": true }]
     }
   },
   "browserslist": {
