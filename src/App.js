@@ -1,17 +1,25 @@
 import React from 'react';
-import './App.css';
 import HomePage from './homePage';
-import NavbarComponent from './navbar.component';
+import HeaderComponent from './header.component';
 import FooterComponent from './footer.component';
+import styled from 'styled-components';
+
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+`;
 
 function App() {
 
   return (
-    <div className="App">
-      <NavbarComponent/>
+    <AppWrapper>
+      <HeaderComponent/>      
       <HomePage/>
       <FooterComponent/>
-    </div>
+    </AppWrapper>
   );
 }
 

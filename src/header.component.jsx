@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FooterWrapper = styled.div`
+const HeaderWrapper = styled.div`
   overflow: hidden;
   background-color: #333;
   position: fixed;
-  bottom: 0;
+  top: 0;
   width: 100%;
   height: 50px;
   display: flex;
@@ -15,13 +15,15 @@ const FooterWrapper = styled.div`
   align-items: center;
 `;
 
-function FooterComponent() {
+function HeaderComponent() {
   return (
-    <FooterWrapper>
-      saludos
-      saludos
-    </FooterWrapper>
+    <HeaderWrapper>
+      texto
+      texto
+      texto
+      texto
+    </HeaderWrapper>
   )
 }
 
-export default FooterComponent;
+export default HeaderComponent;
