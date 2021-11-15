@@ -4,6 +4,7 @@ import emptycart from './assets/empty-shopping-cart.png';
 
 const HeaderWrapper = styled.div`
   overflow: hidden;
+  z-index: 10;
   background-color: #5a5a5a;
   position: fixed;
   top: 0;

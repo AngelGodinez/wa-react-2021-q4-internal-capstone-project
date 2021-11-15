@@ -9,6 +9,8 @@ const FooterWrapper = styled.div`
   width: 100%;
   height: 50px;
   display: flex;
+  margin-top: auto;
+  flex: 0 0 50px;
   flex-direction: row;
   justify-content: space-around;
   color: white;

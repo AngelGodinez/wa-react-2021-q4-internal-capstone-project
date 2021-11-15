@@ -3,18 +3,18 @@ import SliderComponent from './slider.component';
 import CarouselComponent from './carousel.component';
 import GridComponent from './grid.component';
 import styled from 'styled-components';
-import featured_banners from './featured-banners';
-
-const { results } = featured_banners;
+import bannerResults from './featured-banners';
+import productCategoriesResults from './product-categories';
 
 const HomeWrapper = styled.div`
   width: 95%;
+  bottom: 50px;
 `;
 function HomePage() {
   return (
     <HomeWrapper>
-      <SliderComponent slides={results}/>
-      <CarouselComponent/>
+      <SliderComponent slides={bannerResults}/>
+      <CarouselComponent slides={productCategoriesResults}/>
       <GridComponent/>
     </HomeWrapper>
   )

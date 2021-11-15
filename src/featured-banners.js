@@ -138,4 +138,7 @@ const featured_banners = {
   "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
 }
 
-export default featured_banners;
+const { results } = featured_banners;
+const bannersResults = results;
+
+export default bannersResults;
