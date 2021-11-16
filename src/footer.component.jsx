@@ -20,8 +20,7 @@ const FooterWrapper = styled.div`
 function FooterComponent() {
   return (
     <FooterWrapper>
-      saludos
-      saludos
+      Ecommerce created during Wizeline’s Academy React Bootcamp
     </FooterWrapper>
   )
 }
