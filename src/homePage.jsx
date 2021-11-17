@@ -3,6 +3,7 @@ import CarouselComponent from './carousel.component';
 import GridComponent from './grid.component';
 import bannerResults from './featured-banners';
 import productCategoriesResults from './product-categories';
+import featuredProducts from './featured-products';
 import HomeWrapper from './homePage.styles';
 
 function HomePage() {
@@ -18,7 +19,7 @@ function HomePage() {
         width={200}
         height={100}
       />
-      <GridComponent/>
+      <GridComponent gridItems={featuredProducts}/>
     </HomeWrapper>
   )
 }

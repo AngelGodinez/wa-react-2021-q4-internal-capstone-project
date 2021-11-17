@@ -22,9 +22,10 @@ function CarouselComponent({ slides, width, height }) {
     <StyledSlider>
       <FaChevronLeft onClick={prevSlide} />
         <SlidesWrapper>
-        {slides.map(({ data: { main_image, name}}, slideIndex) => {
+        {slides.map(({ id, data: { main_image, name}}, slideIndex) => {
           return (
             <SlidesComponent
+              key={id}
               currentSlideIndex={currentSlideIndex}
               slideIndex={slideIndex}
               image={main_image.url}

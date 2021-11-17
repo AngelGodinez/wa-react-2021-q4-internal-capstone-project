@@ -1,10 +1,21 @@
 import React from 'react';
+import {GridWrapper, GridItem} from './gridComponent.styles';
+import { SlidesWrapper } from './carousel.styles';
 
-function GridComponent() {
+function GridComponent({gridItems}) {
   return (
-    <div>
-      Grid component
-    </div>
+    <GridWrapper>
+      {gridItems.map(({ id, data: { mainimage, name}}) => {
+        return (
+          <GridItem key={id}>
+            <SlidesWrapper>
+              <img src={mainimage.url} alt="" />
+              <span>{name}</span>
+            </SlidesWrapper>
+          </GridItem>
+        );
+      })}
+    </GridWrapper>
   )
 }
 
