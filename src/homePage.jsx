@@ -7,7 +7,11 @@ import featuredProducts from './featured-products';
 import HomeWrapper from './homePage.styles';
 
 function HomePage() {
-  console.log({ productCategoriesResults });
+  
+  function handleClick() {
+    window.location.href = '/products';
+  }
+
   return (
     <HomeWrapper>
       <CarouselComponent
@@ -25,7 +29,7 @@ function HomePage() {
         numberOfItems={3}
       />
       <GridComponent gridItems={featuredProducts}/>
-      <button type="button">View all products</button>
+      <button type="button" onClick={handleClick}>View all products</button>
     </HomeWrapper>
   )
 }
