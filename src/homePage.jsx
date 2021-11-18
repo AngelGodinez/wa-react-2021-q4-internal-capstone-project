@@ -25,6 +25,7 @@ function HomePage() {
         numberOfItems={3}
       />
       <GridComponent gridItems={featuredProducts}/>
+      <button type="button">View all products</button>
     </HomeWrapper>
   )
 }

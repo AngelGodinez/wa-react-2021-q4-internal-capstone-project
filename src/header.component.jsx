@@ -9,7 +9,7 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50px;
+  height: 85px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,7 +20,7 @@ const HeaderWrapper = styled.div`
     padding-right: 20px;
   }
   .brand__name {
-    padding-left: 8px;
+    padding-left: 60px;
     font-size: 20px;
   }
 `;
@@ -32,7 +32,7 @@ const CartWrapper = styled.div`
   border: 1px solid white;
   border-radius: 4px;
   padding: 5px 10px;
-  margin-right: 10px;
+  margin-right: 60px;
 `;
 function HeaderComponent() {
   const cartQuantity = 0;
