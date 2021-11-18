@@ -7,17 +7,22 @@ import featuredProducts from './featured-products';
 import HomeWrapper from './homePage.styles';
 
 function HomePage() {
+  console.log({ productCategoriesResults });
   return (
     <HomeWrapper>
       <CarouselComponent
         slides={bannerResults}
         width={400}
         height={300}
+        /* Esto es lo que deseo añadir */
+        numberOfItems={1}
       />
       <CarouselComponent
         slides={productCategoriesResults}
         width={200}
         height={100}
+        /* Esto es lo que deseo añadir */
+        numberOfItems={3}
       />
       <GridComponent gridItems={featuredProducts}/>
     </HomeWrapper>

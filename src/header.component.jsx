@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import emptycart from './assets/empty-shopping-cart.png';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const HeaderWrapper = styled.div`
   overflow: hidden;
@@ -25,7 +25,17 @@ const HeaderWrapper = styled.div`
   }
 `;
 
+const CartWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 10px;
+`;
 function HeaderComponent() {
+  const cartQuantity = 0;
   return (
     <HeaderWrapper>      
       <span className="brand__name">
@@ -35,7 +45,9 @@ function HeaderComponent() {
         <input type="text" />
         <button type="button">search</button>
       </div>
-      <img src={emptycart} alt="cart"/>
+      <CartWrapper>
+        <FaShoppingCart/>&nbsp;&nbsp;({cartQuantity})
+      </CartWrapper>
     </HeaderWrapper>
   )
 }
