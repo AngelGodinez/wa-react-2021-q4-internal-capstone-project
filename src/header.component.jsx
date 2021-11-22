@@ -1,41 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
-import emptycart from './assets/empty-shopping-cart.png';
-
-const HeaderWrapper = styled.div`
-  overflow: hidden;
-  z-index: 10;
-  background-color: #5a5a5a;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: white;
-  align-items: center;
-  img {
-    max-height: 40px;
-    padding-right: 20px;
-  }
-  .brand__name {
-    padding-left: 8px;
-    font-size: 20px;
-  }
-`;
+import { FaShoppingCart } from 'react-icons/fa';
+import { HeaderWrapper, CartWrapper } from './headerComponent.styles';
 
 function HeaderComponent() {
+  const cartQuantity = 0;
+  function handleClick() {
+    window.location.href = '/';
+  }
   return (
     <HeaderWrapper>      
-      <span className="brand__name">
+      <span className="brand__name" onClick={handleClick}>
         THE SHOP
       </span>
       <div>
         <input type="text" />
         <button type="button">search</button>
       </div>
-      <img src={emptycart} alt="cart"/>
+      <CartWrapper>
+        <FaShoppingCart/>&nbsp;&nbsp;({cartQuantity})
+      </CartWrapper>
     </HeaderWrapper>
   )
 }

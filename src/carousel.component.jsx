@@ -3,13 +3,14 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { SlidesWrapper, StyledSlider } from "./carousel.styles";
 import SlidesComponent from "./slides.component";
 
-function CarouselComponent({ slides, width, height }) {
+function CarouselComponent({ slides, width, height, numberOfItems }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const maxSlidesNumber = slides.length;
 
   const nextSlide = () => {
     setCurrentSlideIndex((currentSlideIndex) =>
-      currentSlideIndex === maxSlidesNumber - 1 ? 0 : currentSlideIndex + 1);
+      currentSlideIndex === maxSlidesNumber - 1 ? 0 : currentSlideIndex + 1
+    );
   };
 
   const prevSlide = () => {
@@ -21,10 +22,11 @@ function CarouselComponent({ slides, width, height }) {
   return (
     <StyledSlider>
       <FaChevronLeft onClick={prevSlide} />
-        <SlidesWrapper>
-        {slides.map(({ data: { main_image, name}}, slideIndex) => {
+      <SlidesWrapper>
+        {slides.map(({ id, data: { main_image, name } }, slideIndex) => {
           return (
             <SlidesComponent
+              key={id}
               currentSlideIndex={currentSlideIndex}
               slideIndex={slideIndex}
               image={main_image.url}
@@ -34,7 +36,7 @@ function CarouselComponent({ slides, width, height }) {
             />
           );
         })}
-        </SlidesWrapper>
+      </SlidesWrapper>
       <FaChevronRight onClick={nextSlide} />
     </StyledSlider>
   );

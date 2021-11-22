@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const HomeWrapper = styled.div`
-  width: 95%;
-  bottom: 50px;
+const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: baseline;
 `;
 
-export default HomeWrapper;
+export {
+  SidebarWrapper
+}
