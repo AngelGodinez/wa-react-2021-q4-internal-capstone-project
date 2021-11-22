@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const ProductListWrapper = styled.div`
   width: 100%;
+  .base__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .container {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -10,9 +15,9 @@ const ProductListWrapper = styled.div`
   }
   .list__container {
     width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  }
+  .pagination__buttons {
+    flex-direction: row;
   }
 `;
 

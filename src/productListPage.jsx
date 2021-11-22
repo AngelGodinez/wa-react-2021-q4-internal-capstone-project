@@ -1,16 +1,21 @@
 import React from 'react';
 import { ProductListWrapper } from './productListPageStyles';
 import GridComponent from './grid.component';
-import featuredProducts from './featured-products';
+import SidebarComponent from './sidebar.component';
+import Products from './products'
 
 function ProductListPage() {
   return (
     <ProductListWrapper>
       <div className="container">
-        <div>sidebar</div>
-        <div className="list__container">
-          <GridComponent gridItems={featuredProducts}/>
-          <button type="button">pagination</button>
+        <SidebarComponent/>
+        <div className="base__flex list__container">
+          <GridComponent gridItems={Products}/>
+          <div className="base__flex pagination__buttons">
+            <button type="button">Page 1</button>
+            <button type="button"> - Pagination - </button>
+            <button type="button">End</button>
+          </div>
         </div>
       </div>
     </ProductListWrapper>

@@ -3,6 +3,7 @@ import {GridWrapper, GridItem} from './gridComponent.styles';
 import { SlidesWrapper } from './carousel.styles';
 
 function GridComponent({gridItems}) {
+  console.log({gridItems});
   return (
     <GridWrapper>
       {gridItems.map(({ id, data: { mainimage, name, price, category}}) => {
