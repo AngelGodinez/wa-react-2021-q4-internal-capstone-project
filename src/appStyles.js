@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const HomeWrapper = styled.div`
-  width: 95%;
-  bottom: 50px;
+const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 `;
 
-export default HomeWrapper;
+export default AppWrapper;
