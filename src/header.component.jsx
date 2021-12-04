@@ -1,17 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { HeaderWrapper, CartWrapper } from './headerComponent.styles';
 
 function HeaderComponent() {
   const cartQuantity = 0;
-  function handleClick() {
-    window.location.href = '/';
-  }
   return (
     <HeaderWrapper>      
-      <span className="brand__name" onClick={handleClick}>
+      <Link className="brand__name" to='/home'>
         THE SHOP
-      </span>
+      </Link>
       <div>
         <input type="text" />
         <button type="button">search</button>

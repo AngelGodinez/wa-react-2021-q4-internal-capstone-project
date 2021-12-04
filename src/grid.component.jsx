@@ -10,7 +10,7 @@ function GridComponent({gridItems}) {
           <GridItem key={id}>
             <SlidesWrapper>
               <img src={mainimage.url} alt="" />
-              <span>{price}</span>
+              <span>$&nbsp;{price}</span>
               <span>{name}</span>
               <span>{category.slug}</span>
             </SlidesWrapper>

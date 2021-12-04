@@ -26,9 +26,15 @@ const GridWrapper = styled.div`
 `;
 
 const GridItem = styled.div`
+  text-align: center;
   img {
     height: 150px;
     width: 100px;
+    padding-bottom: 5px;
+  }
+  span {
+    margin: 3.5px 0;
+    text-transform: capitalize;
   }
 `;
 

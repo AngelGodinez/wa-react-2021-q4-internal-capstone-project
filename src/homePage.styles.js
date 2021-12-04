@@ -6,6 +6,11 @@ const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  a {
+    button {
+      width: 100%;
+    }
+  }
 `;
 
 export default HomeWrapper;

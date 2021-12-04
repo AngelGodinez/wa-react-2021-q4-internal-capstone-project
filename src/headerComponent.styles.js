@@ -21,6 +21,8 @@ const HeaderWrapper = styled.div`
     padding-left: 60px;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
   }
 `;
 

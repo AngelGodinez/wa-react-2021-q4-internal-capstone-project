@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import { SidebarWrapper } from './sideBarComponent.styles';
+import React from 'react';
+import { SidebarWrapper, SidebarTitle, FilterWrapper } from './sideBarComponent.styles';
 import productCategoriesResults from './product-categories';
-import { SideBarContext } from './productListPage';
 
-export default function SidebarComponent() {
-  const { filterValue, setFilterValue } = useContext(SideBarContext);
+export default function SidebarComponent({filterValue, setFilterValue}) {
   function handleInputChecked (id, checkedStatus) {
     if ( checkedStatus ) {
       setFilterValue([...filterValue, id]);
@@ -14,14 +12,15 @@ export default function SidebarComponent() {
   };
   return (
     <SidebarWrapper>
+      <SidebarTitle>Filter by Category</SidebarTitle>
       {productCategoriesResults.map(({ id, data: { name }}) => {
         return (
-          <div key={id}>
+          <FilterWrapper key={id}>
             <input type="checkbox" onChange={(e) => handleInputChecked(
               id, e.target.checked
               )}/>
             <label>{name}</label>
-          </div>
+          </FilterWrapper>
         );
       })}
     </SidebarWrapper>

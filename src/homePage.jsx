@@ -1,35 +1,45 @@
 import React from 'react';
-import CarouselComponent from './carousel.component';
-import GridComponent from './grid.component';
-import bannerResults from './featured-banners';
-import productCategoriesResults from './product-categories';
-import featuredProducts from './featured-products';
+import { Link } from 'react-router-dom';
+
+import { API_TYPES } from './utils/constants';
+import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+
+import CarouselComponent from './Carousel.component';
+import GridComponent from './Grid.component';
 import HomeWrapper from './homePage.styles';
 
-function HomePage() {
-  
-  function handleClick() {
-    window.location.href = '/products';
-  }
 
+function HomePage() {
+  const { data: featuredBanners, isLoading: featuredBannersIsLoading } = useFeaturedBanners(API_TYPES.BANNER, 5);  
+  const { data: featuredCategory, isLoading: featuredCategoryIsLoading } = useFeaturedBanners(API_TYPES.CATEGORY, 30);  
+  const { data: featuredProducts, isLoading: featuredProductsIsLoading } = useFeaturedBanners(API_TYPES.PRODUCT, 16);  
   return (
     <HomeWrapper>
-      <CarouselComponent
-        slides={bannerResults}
+
+      {featuredBannersIsLoading ?
+        <>LOADING...</>
+      : <CarouselComponent
+        slides={featuredBanners.results}
         width={400}
-        height={300}
-        /* Esto es lo que deseo añadir */
-        numberOfItems={1}
-      />
-      <CarouselComponent
-        slides={productCategoriesResults}
+        height={300} />
+      }
+      
+      {featuredCategoryIsLoading ?
+      <>LOADING... </>
+      : <CarouselComponent
+        slides={featuredCategory.results}
         width={200}
         height={100}
-        /* Esto es lo que deseo añadir */
-        numberOfItems={3}
-      />
-      <GridComponent gridItems={featuredProducts}/>
-      <button type="button" onClick={handleClick}>View all products</button>
+      />}
+
+      {featuredProductsIsLoading ?
+      <>LOADING... </>
+      :<GridComponent gridItems={featuredProducts.results}/>}
+
+      <Link to='/products'>
+        <button type='button'>View all products</button>
+      </Link>
+      
     </HomeWrapper>
   )
 }

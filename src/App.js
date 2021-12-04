@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
 import AppWrapper from './appStyles';
 import HomePage from './homePage';
 import ProductListPage from './productListPage';
-import HeaderComponent from './header.component';
-import FooterComponent from './footer.component';
+import ProductPage from './productPage';
+import SearchPage from './searchPage';
+import HeaderComponent from './Header.component';
+import FooterComponent from './Footer.component';
 
-function App() {
-  const currentPathname = window.location.pathname;
-  const [isLoading, setIsLoading] = useState(true);
-
-  function handlerenderedPage () {
-    if ( currentPathname === '/products' ) {
-      return (<ProductListPage/>);
-    }
-    return (<HomePage/>);
-  }
-
-  useEffect(() => {
-    setTimeout(()=>{
-      setIsLoading(false);
-    },2000);
-  }, [currentPathname]);
+function App() {  
   return (
     <AppWrapper>
       <HeaderComponent/>
-      { isLoading ?
-        <div>Is loading</div> :
-        handlerenderedPage()
-      }
+        <Routes>
+          {["/", "/home"].map((path, index) => 
+            <Route exact path={path} element={<HomePage />} key={index} />
+          )}
+          <Route path="/products" element={<ProductListPage />}/>
+          <Route path="/search" element={<SearchPage />}/>
+          <Route path="/product/:productId" element={<ProductPage />} >
+          </Route>
+        </Routes>
       <FooterComponent/>
     </AppWrapper>
   );

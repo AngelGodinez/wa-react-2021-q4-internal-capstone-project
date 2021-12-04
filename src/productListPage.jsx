@@ -1,22 +1,24 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { ProductListWrapper } from './productListPageStyles';
-import GridComponent from './grid.component';
-import SidebarComponent from './sidebar.component';
-import Products from './products';
+import React, { useState, useEffect } from 'react';
 
-export const SideBarContext = createContext();
+import useQuery from './utils/hooks/useQuery';
+import { ProductListWrapper } from './productListPageStyles';
+import GridComponent from './Grid.component';
+import SidebarComponent from './Sidebar.component';
+import Paginator from './Paginator.component';
+import Products from './products';
 
 function ProductListPage() {
   const [filteredProducts, setFilteredProducts] = useState(Products);
-  const [filterValue, setFilterValue] = useState(['']);
+  const [filterValue, setFilterValue] = useState([]);
+  const query = useQuery('category');
+  console.log({query});
   useEffect(()=> {
     function handleFilterProducts() {
-      if ( filterValue.length === 1 && filterValue[0] === '' ) {
-        return Products;
-      }
-      return Products.filter(el => 
+      const filteredProducts = Products.filter(el => 
         filterValue.includes(el.data.category.id
-      ))
+      ));
+      if ( filterValue.length <= 0 ) return Products;
+      return filteredProducts;
     };
     setFilteredProducts(
       handleFilterProducts()
@@ -25,20 +27,14 @@ function ProductListPage() {
   return (
     <ProductListWrapper>
       <div className="container">
-        <SideBarContext.Provider value={{
-          filterValue, setFilterValue
-        }}>
-          <SidebarComponent/>          
-        </SideBarContext.Provider>
+        <SidebarComponent
+          filterValue={filterValue}
+          setFilterValue={setFilterValue}/>
         <div className="base__flex list__container">
           {filteredProducts.length > 0 ?
             <>
             <GridComponent gridItems={filteredProducts}/>
-            <div className="base__flex pagination__buttons">
-              <button type="button">Page 1</button>
-              <button type="button"> - Pagination - </button>
-              <button type="button">End</button>
-            </div>
+            <Paginator />
             </>
             : <div>NO ITEMS FOUND</div>
           }

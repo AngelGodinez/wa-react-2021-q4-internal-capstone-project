@@ -7,6 +7,18 @@ const SidebarWrapper = styled.div`
   align-self: baseline;
 `;
 
+const SidebarTitle = styled.div`
+  margin: 1rem auto;
+`;
+
+const FilterWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+`;
+
 export {
-  SidebarWrapper
+  SidebarWrapper,
+  SidebarTitle,
+  FilterWrapper,
 }

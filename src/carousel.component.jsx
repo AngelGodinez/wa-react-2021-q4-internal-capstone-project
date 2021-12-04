@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { SlidesWrapper, StyledSlider } from "./carousel.styles";
-import SlidesComponent from "./slides.component";
+import SlidesComponent from "./Slides.component";
 
-function CarouselComponent({ slides, width, height, numberOfItems }) {
+function CarouselComponent({ slides, width, height }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const maxSlidesNumber = slides.length;
+  const maxSlidesNumber = slides.length - 1;
 
   const nextSlide = () => {
     setCurrentSlideIndex((currentSlideIndex) =>
-      currentSlideIndex === maxSlidesNumber - 1 ? 0 : currentSlideIndex + 1
+      currentSlideIndex === maxSlidesNumber ? 0 : currentSlideIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentSlideIndex((currentSlideIndex) =>
-      currentSlideIndex === 0 ? maxSlidesNumber - 1 : currentSlideIndex - 1
+      currentSlideIndex === 0 ? maxSlidesNumber : currentSlideIndex - 1
     );
   };
 
@@ -23,7 +23,7 @@ function CarouselComponent({ slides, width, height, numberOfItems }) {
     <StyledSlider>
       <FaChevronLeft onClick={prevSlide} />
       <SlidesWrapper>
-        {slides.map(({ id, data: { main_image, name } }, slideIndex) => {
+        {slides.map(({ id, slugs, data: { main_image, name } }, slideIndex) => {
           return (
             <SlidesComponent
               key={id}
@@ -31,6 +31,7 @@ function CarouselComponent({ slides, width, height, numberOfItems }) {
               slideIndex={slideIndex}
               image={main_image.url}
               name={name}
+              slugs={slugs.join()}
               width={width}
               height={height}
             />
